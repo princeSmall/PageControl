@@ -13,6 +13,7 @@
 		EECE5BAE207AFD0100784643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EECE5BAD207AFD0100784643 /* Assets.xcassets */; };
 		EECE5BB1207AFD0100784643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECE5BAF207AFD0100784643 /* LaunchScreen.storyboard */; };
 		EECE5BB4207AFD0100784643 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EECE5BB3207AFD0100784643 /* main.m */; };
+		EECE5BBF207B32E500784643 /* TLScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EECE5BBE207B32E500784643 /* TLScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		EECE5BB0207AFD0100784643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EECE5BB2207AFD0100784643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EECE5BB3207AFD0100784643 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EECE5BBD207B32E500784643 /* TLScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLScrollView.h; sourceTree = "<group>"; };
+		EECE5BBE207B32E500784643 /* TLScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				EECE5BA5207AFCFF00784643 /* AppDelegate.m */,
 				EECE5BA7207AFCFF00784643 /* ViewController.h */,
 				EECE5BA8207AFCFF00784643 /* ViewController.m */,
+				EECE5BBD207B32E500784643 /* TLScrollView.h */,
+				EECE5BBE207B32E500784643 /* TLScrollView.m */,
 				EECE5BAA207AFCFF00784643 /* Main.storyboard */,
 				EECE5BAD207AFD0100784643 /* Assets.xcassets */,
 				EECE5BAF207AFD0100784643 /* LaunchScreen.storyboard */,
@@ -144,6 +149,7 @@
 				EECE5BA9207AFCFF00784643 /* ViewController.m in Sources */,
 				EECE5BB4207AFD0100784643 /* main.m in Sources */,
 				EECE5BA6207AFCFF00784643 /* AppDelegate.m in Sources */,
+				EECE5BBF207B32E500784643 /* TLScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3F7H4D8NK3;
 				INFOPLIST_FILE = PageControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3F7H4D8NK3;
 				INFOPLIST_FILE = PageControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
