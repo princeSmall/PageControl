@@ -15,6 +15,7 @@
 @property (nonatomic,strong)TLPageControl * pageControl;
 @property (nonatomic,strong)NSTimer * time;
 @property (nonatomic,strong)UIScrollView * scrollView;
+@property (nonatomic,strong)UIPageControl * pageControl1;
 @end
 @implementation TLScrollView
 
@@ -23,6 +24,7 @@
     if (self) {
        [self addSubview:self.scrollView];
        [self addSubview:self.pageControl];
+       [self addSubview:self.pageControl1];
     }
     return self;
 }
@@ -35,6 +37,7 @@
     }
     _count = count;
     self.pageControl.numberOfPages = _count ;
+    self.pageControl1.numberOfPages = _count;
     self.scrollView.contentSize = CGSizeMake(Width * _count, Height);
 }
 
@@ -59,6 +62,16 @@
     }
     return _pageControl;
 }
+- (UIPageControl *)pageControl1{
+    if (_pageControl1 == nil) {
+        _pageControl1 = [[UIPageControl alloc]initWithFrame:CGRectMake(Width / 2.0 - 50, Height + 20, 100, 10)];
+        _pageControl1.backgroundColor = [UIColor clearColor];
+        _pageControl1.currentPage = 0;
+        [_pageControl1 setValue:[UIImage imageNamed:@"white"] forKeyPath:@"pageImage"];
+        [_pageControl1 setValue:[UIImage imageNamed:@"red"] forKeyPath:@"currentPageImage"];
+    }
+    return _pageControl1;
+}
 
 
 #pragma mark - NSTimer
@@ -73,6 +86,7 @@
 }
 - (void)CurrentPage{
     self.pageControl.currentPage = _page;
+     self.pageControl.currentPage = _page;
     [self.scrollView setContentOffset:CGPointMake(Width * self.pageControl.currentPage, 0) animated:YES];
     if (_page == 0) {
         isDirection =  YES;

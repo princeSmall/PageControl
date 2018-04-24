@@ -8,9 +8,9 @@
 
 #import "TLPageControl.h"
 
-#define dotW 15 // 圆点宽
-#define dotH 6  // 圆点高
-#define magrin 0    // 圆点间距
+#define dotW 15      // 圆点宽
+#define dotH 6       // 圆点高
+#define magrin 0     // 圆点间距
 
 @implementation TLPageControl
 
@@ -22,8 +22,7 @@
 }
 */
 
-// 1.修改大小，创建一个类，继承UIPageControl，重写setCurrentPage方法，可设置圆点大小
-
+// 1.修改大小，创建一个类，继承UIPageControl，重写layoutSubviews方法，可设置圆点大小
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -40,12 +39,14 @@
     //遍历subview,设置圆点frame
     for (int i=0; i<[self.subviews count]; i++) {
         UIImageView * dot = [self.subviews objectAtIndex:i];
-        
+       
         if (i == self.currentPage) {
-            [dot setFrame:CGRectMake(i * marginX, dot.frame.origin.y, dotW-2, dotH)];
+            [dot setFrame:CGRectMake(i * marginX, dot.frame.origin.y, dotW - 2, dotH)];
         }else {
             [dot setFrame:CGRectMake(i * marginX, dot.frame.origin.y, dotW, dotH)];
         }
     }
+  
 }
+
 @end
