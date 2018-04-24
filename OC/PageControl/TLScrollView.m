@@ -7,11 +7,12 @@
 //
 
 #import "TLScrollView.h"
+#import "TLPageControl.h"
 
 #define Width    self.frame.size.width
 #define Height   self.frame.size.height
 @interface TLScrollView()
-@property (nonatomic,strong)UIPageControl * pageControl;
+@property (nonatomic,strong)TLPageControl * pageControl;
 @property (nonatomic,strong)NSTimer * time;
 @property (nonatomic,strong)UIScrollView * scrollView;
 @end
@@ -25,6 +26,7 @@
     }
     return self;
 }
+// 如果是网络图片，要给默认图，否则网络卡会出现空白
 - (void)setImageCount:(NSUInteger)count{
     for (int i = 0; i < count; i ++) {
         UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * Width, 0 , Width, Height)];
@@ -32,7 +34,7 @@
         [self.scrollView addSubview:imageView];
     }
     _count = count;
-    self.pageControl.numberOfPages = _count;
+    self.pageControl.numberOfPages = _count ;
     self.scrollView.contentSize = CGSizeMake(Width * _count, Height);
 }
 
@@ -47,13 +49,13 @@
     }
     return _scrollView;
 }
-- (UIPageControl *)pageControl{
+- (TLPageControl *)pageControl{
     if (_pageControl == nil) {
-        _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(Width / 2.0 - 100, Height - 20, 200, 20)];
+        _pageControl = [[TLPageControl alloc]initWithFrame:CGRectMake(Width / 2.0 - 50, Height - 20, 100, 10)];
         _pageControl.backgroundColor = [UIColor clearColor];
         _pageControl.currentPage = 0;
-        [_pageControl setValue:[UIImage imageNamed:@"gray"] forKeyPath:@"pageImage"];
-        [_pageControl setValue:[UIImage imageNamed:@"red"] forKeyPath:@"currentPageImage"];
+        [_pageControl setValue:[UIImage imageNamed:@"11111"] forKeyPath:@"pageImage"];
+        [_pageControl setValue:[UIImage imageNamed:@"22222"] forKeyPath:@"currentPageImage"];
     }
     return _pageControl;
 }
@@ -71,12 +73,16 @@
 }
 - (void)CurrentPage{
     self.pageControl.currentPage = _page;
-    [self.scrollView setContentOffset:CGPointMake(Width * _page, 0)];
-    
-    if (_page == 4) {
-        _page = 0;
-    }else{
+    [self.scrollView setContentOffset:CGPointMake(Width * self.pageControl.currentPage, 0) animated:YES];
+    if (_page == 0) {
+        isDirection =  YES;
+    }else if (_page == 4){
+        isDirection = NO;
+    }
+    if (isDirection == YES) {
         _page ++;
+    }else{
+        _page --;
     }
 }
 

@@ -20,9 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    count = 5;
     // Do any additional setup after loading the view, typically from a nib.
 }
+
 - (TLScrollView *)tlView{
     if (_tlView == nil) {
         _tlView = [[TLScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
@@ -32,6 +32,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+      count = 5;
     [self.view addSubview:self.tlView];
     [self.tlView startNSTimer];
 }

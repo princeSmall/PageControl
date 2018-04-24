@@ -11,6 +11,7 @@
 @interface TLScrollView : UIView<UIScrollViewDelegate>{
     NSInteger _count;
     NSInteger _page;
+    BOOL  isDirection;
 }
 
 - (void)setImageCount:(NSUInteger)count;

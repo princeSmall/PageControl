@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE43C63C208F205100F1D28D /* TLPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EE43C63B208F205100F1D28D /* TLPageControl.m */; };
 		EECE5BA6207AFCFF00784643 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EECE5BA5207AFCFF00784643 /* AppDelegate.m */; };
 		EECE5BA9207AFCFF00784643 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EECE5BA8207AFCFF00784643 /* ViewController.m */; };
 		EECE5BAC207AFCFF00784643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECE5BAA207AFCFF00784643 /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE43C63A208F205100F1D28D /* TLPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLPageControl.h; sourceTree = "<group>"; };
+		EE43C63B208F205100F1D28D /* TLPageControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLPageControl.m; sourceTree = "<group>"; };
 		EECE5BA1207AFCFF00784643 /* PageControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECE5BA4207AFCFF00784643 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EECE5BA5207AFCFF00784643 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				EECE5BA8207AFCFF00784643 /* ViewController.m */,
 				EECE5BBD207B32E500784643 /* TLScrollView.h */,
 				EECE5BBE207B32E500784643 /* TLScrollView.m */,
+				EE43C63A208F205100F1D28D /* TLPageControl.h */,
+				EE43C63B208F205100F1D28D /* TLPageControl.m */,
 				EECE5BAA207AFCFF00784643 /* Main.storyboard */,
 				EECE5BAD207AFD0100784643 /* Assets.xcassets */,
 				EECE5BAF207AFD0100784643 /* LaunchScreen.storyboard */,
@@ -146,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE43C63C208F205100F1D28D /* TLPageControl.m in Sources */,
 				EECE5BA9207AFCFF00784643 /* ViewController.m in Sources */,
 				EECE5BB4207AFD0100784643 /* main.m in Sources */,
 				EECE5BA6207AFCFF00784643 /* AppDelegate.m in Sources */,
