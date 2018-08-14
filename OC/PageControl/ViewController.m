@@ -23,6 +23,11 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+/**
+ 可不予理睬本类和pagecontrol类，主要在scollview类里实现循环
+
+ @return tlview
+ */
 - (TLScrollView *)tlView{
     if (_tlView == nil) {
         _tlView = [[TLScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];

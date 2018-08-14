@@ -28,17 +28,37 @@
     }
     return self;
 }
-// 如果是网络图片，要给默认图，否则网络卡会出现空白
+
+/**
+ 循环播放主要看这里
+
+ @param count 要方法图的数量
+ */
 - (void)setImageCount:(NSUInteger)count{
+    
+//    1、2、3、4、5 五张图循环播放
+    //    1.如何从5变到1:在5后面加一张为1的图
+    //    2.如何从1变到5:在1后面加一张为5的图
+    //    3.具体看下图if 和 else if， 但是pagecontrol数目保持为五而不变，并设置首次contentoffset为width是以第一张图为起始点，而不是前面加的图5
+    count = count + 2;
+
     for (int i = 0; i < count; i ++) {
         UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * Width, 0 , Width, Height)];
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"image%d",i+1]];
+        if (i == 0) {
+            imageView.image = [UIImage imageNamed:@"image5"];
+        }else if (i == count - 1){
+            imageView.image = [UIImage imageNamed:@"image1"];
+        }else{
+            imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"image%d",i]];
+        }
         [self.scrollView addSubview:imageView];
     }
     _count = count;
-    self.pageControl.numberOfPages = _count ;
-    self.pageControl1.numberOfPages = _count;
+    self.pageControl.numberOfPages = _count -2 ;
+    self.pageControl1.numberOfPages = _count -2;
+    self.pageControl.currentPage = 0;
     self.scrollView.contentSize = CGSizeMake(Width * _count, Height);
+    [self.scrollView setContentOffset:CGPointMake(Width , 0)];
 }
 
 #pragma mark - lazy
@@ -48,6 +68,7 @@
         _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Width, Height)];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled=YES;
+        _scrollView.bounces = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
     }
     return _scrollView;
@@ -102,9 +123,23 @@
 
 #pragma mark - UIScrollViewDelegate
 
+/**
+ 其次在这里判断
+ 1、如果是最后一张，跳到第一张
+ 2、如果是第一张，跳到最后一张
+ 3、改变contentoffset和pagecontrol的展示
+
+ @param scrollView 循环的scrollview
+ */
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    _page = scrollView.contentOffset.x / Width;
-    self.pageControl.currentPage = _page;
+    if (scrollView.contentOffset.x == Width * (_count - 1)) {
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width, 0)];
+    }else if (scrollView.contentOffset.x == 0){
+        CGFloat x = self.scrollView.bounds.size.width * (_count - 2);
+        [self.scrollView setContentOffset:CGPointMake(x , 0)];
+    }
+    _page = (scrollView.contentOffset.x - Width)/Width;
+    self.pageControl.currentPage =_page;
 }
 // 防止按住图片而没有停止定时器
 
@@ -112,6 +147,7 @@
     [self.time invalidate];
     self.time = nil;
 }
+// 可不予理睬定时器
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     self.time = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(CurrentPage) userInfo:nil repeats:YES];
