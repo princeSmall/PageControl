@@ -68,7 +68,7 @@
 }
 </pre>
 
-#### NSTimer
+####  NSTimer
 
 设置定时器轮播
 
